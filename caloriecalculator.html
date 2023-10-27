@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Burned Calories and Hamburgers</title>
+</head>
+<body>
+    <h1>Calculate Burned Calories and Hamburgers by Walking the Hamburger Route</h1>
+
+    <div> A person can burn on average <a href="https://macrofactorapp.com/exercise-calorie-calculator/#:~:text=A%20good%20heuristic%20for%20calories,energy%20expenditure%20throughout%20the%20day.">1 calorie per kilogram per kilometer</a>.<div></div>
+  <br>
+    </div>The hamburger route is approximately 4 kilometers long, and a standard hamburger weights <a href="https://www.voedingscentrum.nl/nl/service/vraag-en-antwoord/gezonde-voeding-en-voedingsstoffen/hoeveel-calorieen-zitten-erin-/caloriechecker/broodje-hamburger.aspx">228 Kcal</a>.</div><div></div>
+  <br>
+    <div> Find out how much Kcal in total and the amount of standard hamburgers you can burn by walking the hamburger route.</div>
+  <br>
+    <div> Simply fill in your body weight in this calculation tool and find out!</div>
+  <br>    
+    
+
+    <form id="calorieForm">
+        <label for="bodyWeight">Body Weight (kg): </label>
+        <input type="number" id="bodyWeight" required><br>
+
+        <input type="submit" value="Calculate">
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('calorieForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var bodyWeight_kg = parseFloat(document.getElementById('bodyWeight').value);
+            var distance_km = 4;
+            var calories_per_kg_per_km = 1;
+            var calories_per_hamburger = 228;
+
+            var total_calories = bodyWeight_kg * calories_per_kg_per_km * distance_km;
+            var hamburgers_burned = total_calories / calories_per_hamburger;
+
+            document.getElementById('result').innerHTML = "By walking the hamburger route, you burned approximately " + total_calories + " Kcal. That's equivalent to " + hamburgers_burned.toFixed(2) + " hamburgers.";
+        });
+    </script>
+</body>
+</html>
